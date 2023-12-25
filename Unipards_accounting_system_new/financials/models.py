@@ -23,4 +23,8 @@ class Part(models.Model):
     def __str__(self):
         return f'{self.category} - {self.name} ({self.status})'
     
-
+class Transaction(models.Model):
+    part = models.ForeignKey(Part, on_delete = models.CASCADE, null=True)
+    money = models.ForeignKey(Money, on_delete = models.CASCADE, null = True)
+    date = models.DateField()
+    description = models.TextField()
