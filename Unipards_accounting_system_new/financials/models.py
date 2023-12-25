@@ -14,4 +14,13 @@ class Money(models.Model):
     def __str__(self):
         return f'{self.user.username} - {self.amount} on {self.date}'
     
+class Part(models.Model):
+    name = models.CharField(max_length = 255)
+    category = models.CharField(max_length = 255)
+    quantity = models.PositiveIntegerField()
+    status = models.CharField(max_length = 50, choices = [('I', 'In stock'), ('O', 'Out of stock')])
+
+    def __str__(self):
+        return f'{self.category} - {self.name} ({self.status})'
     
+
